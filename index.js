@@ -8,6 +8,11 @@ const port=process.env.PORT
 const app=express()
 
 app.use(cors())
+app.use(cors({
+  origin: 'https://noteapp-lhflh2bzd-karishma-upretis-projects.vercel.app',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 app.use(express.json())
 app.use("/user",userRouter)
 app.use("/note",noteRouter)
